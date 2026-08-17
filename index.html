@@ -1,19 +1,100 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Minha Obra — V1</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Minha Obra</title>
 <style>
-:root{--bg:#f5f7f8;--card:#fff;--ink:#162126;--muted:#6b7b83;--line:#dfe6e9;--brand:#0f5b5b;--brand2:#0b7a74;--warn:#b7791f;--danger:#b83232;--ok:#2f855a;--shadow:0 8px 24px rgba(15,30,35,.08)}
-*{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
-.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.side{background:#102a2c;color:#fff;padding:22px 16px;position:sticky;top:0;height:100vh}.brand{font-size:22px;font-weight:800;margin-bottom:24px}.brand small{display:block;font-size:12px;font-weight:500;opacity:.65;margin-top:4px}.nav{display:grid;gap:8px}.nav button{border:0;background:transparent;color:#dbe7e7;padding:12px 14px;border-radius:12px;text-align:left;font-size:15px;cursor:pointer}.nav button.active,.nav button:hover{background:#183d40;color:#fff}.main{padding:24px 28px 90px}.top{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-bottom:22px}.title h1{margin:0;font-size:28px}.title p{margin:4px 0 0;color:var(--muted)}.btn{border:0;border-radius:12px;padding:11px 14px;font-weight:700;cursor:pointer}.btn.primary{background:var(--brand);color:#fff}.btn.soft{background:#e9f3f2;color:var(--brand)}.btn.ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}
-.grid{display:grid;gap:16px}.cards{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}.kpi .label{color:var(--muted);font-size:13px}.kpi .value{font-size:28px;font-weight:800;margin-top:7px}.kpi .sub{font-size:12px;color:var(--muted);margin-top:4px}.two{grid-template-columns:1.2fr .8fr}.three{grid-template-columns:repeat(3,1fr)}
-.section{display:none}.section.active{display:block}.section h2{margin:0 0 14px}.progress{height:10px;background:#e7eeee;border-radius:999px;overflow:hidden}.progress>span{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));width:0}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.chip{display:inline-flex;padding:7px 10px;border-radius:999px;background:#edf3f3;color:#355;font-size:12px;font-weight:700}.chip.ok{background:#e6f4eb;color:var(--ok)}.chip.warn{background:#fff3df;color:var(--warn)}.chip.danger{background:#fdeaea;color:var(--danger)}
-.stage{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:start;padding:16px;border:1px solid var(--line);border-radius:16px;background:#fff}.stage h3{margin:0 0 8px;font-size:17px}.stage .meta{font-size:13px;color:var(--muted);display:flex;gap:12px;flex-wrap:wrap}.stage .actions{display:flex;gap:8px}.stage-list{display:grid;gap:12px}.group{margin-bottom:22px}.group h3{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 10px}
-.table{width:100%;border-collapse:collapse}.table th,.table td{padding:12px;border-bottom:1px solid var(--line);text-align:left;font-size:14px}.table th{color:var(--muted);font-size:12px;text-transform:uppercase}.money{font-weight:800}.timeline{position:relative;padding-left:26px}.timeline:before{content:"";position:absolute;left:9px;top:5px;bottom:5px;width:2px;background:#cbd7d9}.event{position:relative;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 15px;margin-bottom:12px}.event:before{content:"";position:absolute;left:-22px;top:20px;width:12px;height:12px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px var(--bg)}.event .date{font-size:12px;color:var(--muted);margin-bottom:4px}.event strong{display:block;margin-bottom:4px}.empty{padding:30px;text-align:center;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:16px}
-.modal{position:fixed;inset:0;background:rgba(9,24,26,.45);display:none;align-items:flex-end;justify-content:center;z-index:20}.modal.open{display:flex}.sheet{background:#fff;width:min(720px,100%);border-radius:22px 22px 0 0;padding:20px;max-height:88vh;overflow:auto}.sheet h3{margin-top:0}.form{display:grid;gap:13px}.form label{font-size:13px;font-weight:700}.form input,.form select,.form textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;font:inherit}.form textarea{min-height:86px}.quick{display:flex;gap:8px;flex-wrap:wrap}.quick button{padding:9px 11px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer}.quick button.sel{background:#e4f2f1;border-color:#b6d8d5;color:var(--brand);font-weight:800}.footer-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:8px}.mobile-nav{display:none}
-@media(max-width:900px){.app{grid-template-columns:1fr}.side{display:none}.main{padding:18px 14px 88px}.cards{grid-template-columns:repeat(2,1fr)}.two,.three{grid-template-columns:1fr}.top{align-items:flex-start}.top .btn{display:none}.mobile-nav{display:grid;position:fixed;bottom:0;left:0;right:0;grid-template-columns:repeat(5,1fr);background:#fff;border-top:1px solid var(--line);z-index:15}.mobile-nav button{border:0;background:#fff;padding:12px 4px;font-size:11px;color:#566}.mobile-nav button.center{background:var(--brand);color:#fff;margin:-18px 8px 6px;border-radius:16px;padding:14px 4px}.table-wrap{overflow:auto}.stage{grid-template-columns:1fr}.stage .actions{justify-content:flex-start}}
+:root{
+  --bg:#f4f7fb;--card:#fff;--ink:#172126;--muted:#6d7a83;--line:#dde5ea;
+  --green:#0f766e;--blue:#2563eb;--orange:#f59e0b;--purple:#7c3aed;
+  --pink:#db2777;--red:#dc2626;--shadow:0 10px 30px rgba(25,45,70,.09)
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:linear-gradient(135deg,#f7fbff,#f2faf7 48%,#fff8ef)}
+button,input,select,textarea{font:inherit}
+.app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+.side{background:linear-gradient(180deg,#0f766e,#164e63 48%,#1e3a8a);color:#fff;padding:22px 15px;position:sticky;top:0;height:100vh}
+.brand{font-size:22px;font-weight:900;margin-bottom:25px}
+.brand small{display:block;font-size:12px;font-weight:500;opacity:.75;margin-top:4px}
+.nav{display:grid;gap:7px}
+.nav button{border:0;background:transparent;color:#e7f5f4;padding:12px 14px;border-radius:12px;text-align:left;cursor:pointer}
+.nav button.active,.nav button:hover{background:rgba(255,255,255,.14);color:#fff}
+.main{padding:24px 28px 90px}
+.top{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-bottom:20px}
+.title h1{margin:0;font-size:29px}
+.title p{margin:4px 0 0;color:var(--muted)}
+.btn{border:0;border-radius:13px;padding:11px 14px;font-weight:800;cursor:pointer}
+.primary{background:linear-gradient(135deg,var(--green),var(--blue));color:#fff}
+.ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.soft{background:#e9f5f2;color:var(--green)}
+.grid{display:grid;gap:15px}
+.cards{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:19px;padding:18px;box-shadow:var(--shadow)}
+.kpi:nth-child(1){border-top:5px solid var(--green)}
+.kpi:nth-child(2){border-top:5px solid var(--blue)}
+.kpi:nth-child(3){border-top:5px solid var(--orange)}
+.kpi:nth-child(4){border-top:5px solid var(--purple)}
+.label{font-size:13px;color:var(--muted)}
+.value{font-size:27px;font-weight:900;margin-top:7px}
+.sub{font-size:12px;color:var(--muted);margin-top:4px}
+.two{grid-template-columns:1.2fr .8fr}
+.three{grid-template-columns:repeat(3,1fr)}
+.section{display:none}
+.section.active{display:block}
+.section h2{margin:0 0 14px}
+.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.progress{height:10px;background:#e7edf0;border-radius:99px;overflow:hidden}
+.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--blue))}
+.chip{display:inline-flex;padding:7px 10px;border-radius:999px;background:#eef4f5;color:#456;font-size:12px;font-weight:800}
+.chip.ok{background:#e7f7ee;color:#23734a}
+.chip.warn{background:#fff3df;color:#a9650b}
+.stage{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:0 4px 15px rgba(30,50,70,.05)}
+.stage h3{margin:0 0 7px}
+.stage .meta{font-size:13px;color:var(--muted);display:flex;gap:11px;flex-wrap:wrap}
+.stage-list{display:grid;gap:10px}
+.group{margin-bottom:22px}
+.group h3{font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 9px}
+.group:nth-child(5n+1)>h3{color:var(--green)}
+.group:nth-child(5n+2)>h3{color:var(--blue)}
+.group:nth-child(5n+3)>h3{color:#d97706}
+.group:nth-child(5n+4)>h3{color:var(--purple)}
+.group:nth-child(5n+5)>h3{color:var(--pink)}
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{padding:11px;border-bottom:1px solid var(--line);font-size:14px;text-align:left}
+.table th{font-size:11px;color:var(--muted);text-transform:uppercase}
+.money{font-weight:900}
+.timeline{position:relative;padding-left:25px}
+.timeline:before{content:"";position:absolute;left:8px;top:5px;bottom:5px;width:2px;background:#cbd7dc}
+.event{position:relative;background:#fff;border:1px solid var(--line);border-radius:15px;padding:14px;margin-bottom:11px}
+.event:before{content:"";position:absolute;left:-22px;top:18px;width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--blue));box-shadow:0 0 0 4px var(--bg)}
+.empty{padding:28px;text-align:center;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:15px}
+.modal{position:fixed;inset:0;background:rgba(9,24,26,.48);display:none;align-items:flex-end;justify-content:center;z-index:30}
+.modal.open{display:flex}
+.sheet{background:#fff;width:min(720px,100%);border-radius:24px 24px 0 0;padding:20px;max-height:89vh;overflow:auto}
+.sheet h3{margin:0 0 16px;font-size:25px}
+.form{display:grid;gap:14px}
+.form label{font-size:13px;font-weight:800}
+.form input,.form select,.form textarea{width:100%;padding:13px;border:1px solid var(--line);border-radius:13px;background:#fff}
+.quick,.stage-picks{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.quick button,.stage-pick{border:1px solid #d9e2e7;background:#fff;border-radius:999px;padding:9px 12px;color:var(--blue);cursor:pointer}
+.quick button.sel{background:linear-gradient(135deg,#dff6ef,#e7efff);border-color:#78cfc2;color:#0f635e;font-weight:900}
+.stage-picks{max-height:195px;overflow:auto}
+.stage-pick{border-radius:12px;color:#405060;font-size:12px;font-weight:750}
+.stage-pick.sel{background:#eef2ff;border-color:#818cf8;color:#4338ca}
+.supplier-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end}
+.supplier-add{background:#fff7ed;color:#c2410c;border:1px solid #fed7aa;white-space:nowrap}
+.footer-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:5px}
+.mobile-nav{display:none}
+@media(max-width:900px){
+  .app{grid-template-columns:1fr}.side{display:none}.main{padding:18px 14px 92px}
+  .cards{grid-template-columns:repeat(2,1fr)}.two,.three{grid-template-columns:1fr}
+  .top{align-items:flex-start}.top>.btn{display:none}
+  .mobile-nav{display:grid;position:fixed;bottom:0;left:0;right:0;grid-template-columns:repeat(5,1fr);background:#fff;border-top:1px solid var(--line);z-index:20;padding-bottom:env(safe-area-inset-bottom)}
+  .mobile-nav button{border:0;background:#fff;padding:12px 4px;font-size:11px;color:#566}
+  .mobile-nav .center{background:linear-gradient(135deg,var(--green),var(--blue));color:#fff;margin:-18px 8px 6px;border-radius:16px;padding:14px 4px}
+  .stage{grid-template-columns:1fr}.table-wrap{overflow:auto}.supplier-row{grid-template-columns:1fr}.supplier-add{width:100%}
+}
 </style>
 </head>
 <body>
@@ -29,28 +110,50 @@
       <button data-view="config">Projeto</button>
     </div>
   </aside>
+
   <main class="main">
-    <div class="top"><div class="title"><h1 id="pageTitle">Minha Casa</h1><p id="pageSub">Visão geral da obra</p></div><button class="btn primary" onclick="openExpense()">+ Novo gasto</button></div>
+    <div class="top">
+      <div class="title"><h1 id="pageTitle">Minha Casa</h1><p id="pageSub">Visão geral da obra</p></div>
+      <button class="btn primary" onclick="openExpense()">+ Novo gasto</button>
+    </div>
 
     <section id="dashboard" class="section active">
       <div class="grid cards">
-        <div class="card kpi"><div class="label">Investimento total</div><div class="value" id="kpiTotal">R$ 110.000,00</div><div class="sub">Aquisição + melhorias</div></div>
-        <div class="card kpi"><div class="label">Gastos da reforma</div><div class="value" id="kpiReforma">R$ 0,00</div><div class="sub">Somente melhorias</div></div>
-        <div class="card kpi"><div class="label">Etapas concluídas</div><div class="value" id="kpiEtapas">0/23</div><div class="sub" id="kpiEtapasSub">0% concluído</div></div>
-        <div class="card kpi"><div class="label">Próxima etapa</div><div class="value" style="font-size:18px" id="kpiNext">Muro frontal</div><div class="sub">Primeira pendência</div></div>
+        <div class="card kpi"><div class="label">Investimento total</div><div class="value" id="kpiTotal"></div><div class="sub">Aquisição + melhorias</div></div>
+        <div class="card kpi"><div class="label">Gastos da reforma</div><div class="value" id="kpiReforma"></div><div class="sub">Somente melhorias</div></div>
+        <div class="card kpi"><div class="label">Etapas concluídas</div><div class="value" id="kpiEtapas"></div><div class="sub" id="kpiEtapasSub"></div></div>
+        <div class="card kpi"><div class="label">Próxima etapa</div><div class="value" style="font-size:18px" id="kpiNext"></div><div class="sub">Primeira pendência</div></div>
       </div>
+
       <div class="grid two">
-        <div class="card"><div class="row" style="justify-content:space-between"><strong>Progresso geral</strong><span id="progressLabel">0%</span></div><div class="progress" style="margin:12px 0 18px"><span id="progressBar"></span></div><div id="areaSummary" class="grid three"></div></div>
+        <div class="card">
+          <div class="row" style="justify-content:space-between"><strong>Progresso geral</strong><span id="progressLabel"></span></div>
+          <div class="progress" style="margin:12px 0 18px"><span id="progressBar"></span></div>
+          <div id="areaSummary" class="grid three"></div>
+        </div>
         <div class="card"><strong>Últimas movimentações</strong><div id="recent" style="margin-top:12px"></div></div>
       </div>
-      <div class="card" style="margin-top:16px"><strong>Gastos por categoria</strong><div id="categoryBars" style="margin-top:14px"></div></div>
+
+      <div class="card" style="margin-top:15px"><strong>Gastos por categoria</strong><div id="categoryBars" style="margin-top:13px"></div></div>
     </section>
 
     <section id="etapas" class="section"><h2>Etapas da obra</h2><div id="stageGroups"></div></section>
 
     <section id="gastos" class="section">
       <div class="row" style="justify-content:space-between;margin-bottom:14px"><h2 style="margin:0">Gastos</h2><button class="btn primary" onclick="openExpense()">+ Novo gasto</button></div>
-      <div class="card"><div class="row"><select id="filterStage" onchange="renderExpenses()"><option value="">Todas as etapas</option></select><select id="filterCategory" onchange="renderExpenses()"><option value="">Todas as categorias</option></select></div><div class="table-wrap"><table class="table"><thead><tr><th>Data</th><th>Descrição</th><th>Etapa</th><th>Fornecedor</th><th>Categoria</th><th>Valor</th></tr></thead><tbody id="expenseRows"></tbody></table></div><div class="row" style="justify-content:flex-end;margin-top:14px"><strong>Total filtrado: <span id="expenseTotal">R$ 0,00</span></strong></div></div>
+      <div class="card">
+        <div class="row">
+          <select id="filterStage" onchange="renderExpenses()"></select>
+          <select id="filterCategory" onchange="renderExpenses()"></select>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>Data</th><th>Descrição</th><th>Etapas</th><th>Fornecedor</th><th>Categoria</th><th>Valor</th></tr></thead>
+            <tbody id="expenseRows"></tbody>
+          </table>
+        </div>
+        <div class="row" style="justify-content:flex-end;margin-top:14px"><strong>Total filtrado: <span id="expenseTotal"></span></strong></div>
+      </div>
     </section>
 
     <section id="fornecedores" class="section">
@@ -60,51 +163,436 @@
 
     <section id="timeline" class="section"><h2>Linha do tempo</h2><div id="timelineList" class="timeline"></div></section>
 
-    <section id="config" class="section"><h2>Projeto</h2><div class="grid two"><div class="card form"><label>Nome do projeto<input id="projectName" value="Minha Casa"></label><label>Valor inicial da aquisição<input id="projectBase" type="number" value="110000"></label><label>Orçamento adicional planejado<input id="projectBudget" type="number" placeholder="Ex.: 80000"></label><label>Data de início<input id="projectStart" type="date"></label><label>Endereço<input id="projectAddress" placeholder="Opcional"></label><button class="btn primary" onclick="saveProject()">Salvar projeto</button></div><div class="card"><strong>Dados desta V1</strong><p style="color:var(--muted)">Os dados ficam salvos no navegador via localStorage. É ideal para você testar no GitHub Pages. Na V2, podemos migrar para Firebase/Supabase para sincronizar entre toda a família.</p><button class="btn ghost" onclick="exportData()">Exportar backup JSON</button><button class="btn ghost" style="margin-left:8px" onclick="resetData()">Restaurar dados demo</button></div></div></section>
+    <section id="config" class="section">
+      <h2>Projeto</h2>
+      <div class="grid two">
+        <div class="card form">
+          <label>Nome do projeto<input id="projectName"></label>
+          <label>Valor inicial da aquisição<input id="projectBase" type="number"></label>
+          <label>Orçamento adicional planejado<input id="projectBudget" type="number"></label>
+          <label>Data de início<input id="projectStart" type="date"></label>
+          <label>Endereço<input id="projectAddress"></label>
+          <button class="btn primary" onclick="saveProject()">Salvar projeto</button>
+        </div>
+        <div class="card">
+          <strong>Dados desta V1</strong>
+          <p style="color:var(--muted)">Os dados ficam neste navegador via localStorage. A estrutura já está pronta para uma futura sincronização online.</p>
+          <button class="btn ghost" onclick="exportData()">Exportar backup JSON</button>
+          <button class="btn ghost" onclick="resetData()" style="margin-top:8px">Restaurar dados demo</button>
+        </div>
+      </div>
+    </section>
   </main>
 </div>
-<nav class="mobile-nav"><button onclick="showView('dashboard')">Início</button><button onclick="showView('etapas')">Etapas</button><button class="center" onclick="openExpense()">+ Gasto</button><button onclick="showView('timeline')">Timeline</button><button onclick="showView('config')">Mais</button></nav>
 
-<div id="expenseModal" class="modal"><div class="sheet"><h3>Novo gasto</h3><div class="form"><label>Valor<input id="expValue" type="number" step="0.01" placeholder="0,00"></label><label>Categoria<div id="catQuick" class="quick"></div></label><label>Etapa<select id="expStage"></select></label><label>Fornecedor<select id="expSupplier"></select></label><label>Forma de pagamento<div id="payQuick" class="quick"></div></label><label>Data<input id="expDate" type="date"></label><label>Descrição<input id="expDesc" placeholder="Opcional"></label><div class="footer-actions"><button class="btn ghost" onclick="closeModal('expenseModal')">Cancelar</button><button class="btn primary" onclick="saveExpense()">Salvar gasto</button></div></div></div></div>
-<div id="supplierModal" class="modal"><div class="sheet"><h3>Novo fornecedor</h3><div class="form"><label>Nome<input id="supName"></label><label>Tipo<select id="supType"><option>Loja de material</option><option>Pedreiro</option><option>Eletricista</option><option>Pintor</option><option>Marceneiro</option><option>Vidraçaria</option><option>Marmoraria</option><option>Serralheria</option><option>Outros</option></select></label><label>WhatsApp / telefone<input id="supPhone"></label><label>Observação<textarea id="supNotes"></textarea></label><div class="footer-actions"><button class="btn ghost" onclick="closeModal('supplierModal')">Cancelar</button><button class="btn primary" onclick="saveSupplier()">Salvar fornecedor</button></div></div></div></div>
+<nav class="mobile-nav">
+  <button onclick="showView('dashboard')">Início</button>
+  <button onclick="showView('etapas')">Etapas</button>
+  <button class="center" onclick="openExpense()">+ Gasto</button>
+  <button onclick="showView('timeline')">Timeline</button>
+  <button onclick="showView('config')">Mais</button>
+</nav>
+
+<div id="expenseModal" class="modal">
+  <div class="sheet">
+    <h3>Novo gasto</h3>
+    <div class="form">
+      <label>Valor<input id="expValue" type="number" step="0.01" placeholder="0,00"></label>
+
+      <label>Categoria
+        <div id="catQuick" class="quick"></div>
+      </label>
+
+      <label>Etapas <span style="font-weight:500;color:var(--muted)">(pode escolher várias)</span>
+        <div id="stageQuick" class="stage-picks"></div>
+      </label>
+
+      <label>Fornecedor
+        <div class="supplier-row">
+          <select id="expSupplier"></select>
+          <button type="button" class="btn supplier-add" onclick="openSupplierFromExpense()">+ Adicionar fornecedor</button>
+        </div>
+      </label>
+
+      <label>Forma de pagamento
+        <div id="payQuick" class="quick"></div>
+      </label>
+
+      <label>Data<input id="expDate" type="date"></label>
+      <label>Descrição<input id="expDesc" placeholder="Opcional"></label>
+
+      <div class="footer-actions">
+        <button class="btn ghost" onclick="closeModal('expenseModal')">Cancelar</button>
+        <button class="btn primary" onclick="saveExpense()">Salvar gasto</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="supplierModal" class="modal">
+  <div class="sheet">
+    <h3>Novo fornecedor</h3>
+    <div class="form">
+      <label>Nome<input id="supName"></label>
+      <label>Tipo
+        <select id="supType">
+          <option>Loja de material</option><option>Pedreiro</option><option>Eletricista</option><option>Pintor</option>
+          <option>Marceneiro</option><option>Vidraçaria</option><option>Marmoraria</option><option>Serralheria</option><option>Outros</option>
+        </select>
+      </label>
+      <label>WhatsApp / telefone<input id="supPhone"></label>
+      <label>Observação<textarea id="supNotes"></textarea></label>
+      <div class="footer-actions">
+        <button class="btn ghost" onclick="cancelSupplier()">Cancelar</button>
+        <button class="btn primary" onclick="saveSupplier()">Salvar fornecedor</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
 const categories=['Material','Mão de obra','Projeto','Móveis planejados','Ferramentas','Frete','Taxas','Outros'];
 const payments=['Pix','Cartão','Dinheiro','Transferência','Boleto'];
+
 const stageSeed=[
-['Estrutura e fechamento','Muro frontal'],['Estrutura e fechamento','Muro dos fundos'],['Estrutura e fechamento','Portão principal'],['Estrutura e fechamento','Portão social'],
-['Ampliação','Ampliação sala/cozinha integrada'],['Ampliação','Construção da suíte'],['Ampliação','Construção do closet'],['Ampliação','Banheiro da suíte'],
-['Acabamentos','Piso da sala'],['Acabamentos','Piso da cozinha'],['Acabamentos','Piso do corredor'],['Acabamentos','Piso da suíte'],['Acabamentos','Piso do closet'],['Acabamentos','Forro da sala'],['Acabamentos','Forro da cozinha'],['Acabamentos','Forro do corredor'],['Acabamentos','Pintura completa'],
-['Marcenaria e instalações','Louças/metais da cozinha'],['Marcenaria e instalações','Armários planejados da cozinha'],['Marcenaria e instalações','Móveis planejados do closet'],['Marcenaria e instalações','Louças/metais do banheiro da suíte'],['Marcenaria e instalações','Projeto/móveis do quarto do João'],
+['Estrutura e fechamento','Muro frontal'],
+['Estrutura e fechamento','Muro dos fundos'],
+['Estrutura e fechamento','Portão principal'],
+['Estrutura e fechamento','Portão social'],
+['Ampliação','Ampliação sala/cozinha integrada'],
+['Ampliação','Construção da suíte'],
+['Ampliação','Construção do closet'],
+['Ampliação','Banheiro da suíte'],
+['Acabamentos','Piso da sala'],
+['Acabamentos','Piso da cozinha'],
+['Acabamentos','Piso do corredor'],
+['Acabamentos','Piso da suíte'],
+['Acabamentos','Piso do closet'],
+['Acabamentos','Forro da sala'],
+['Acabamentos','Forro da cozinha'],
+['Acabamentos','Forro do corredor'],
+['Acabamentos','Pintura completa'],
+['Marcenaria e instalações','Louças/metais da cozinha'],
+['Marcenaria e instalações','Armários planejados da cozinha'],
+['Marcenaria e instalações','Móveis planejados do closet'],
+['Marcenaria e instalações','Louças/metais do banheiro da suíte'],
+['Marcenaria e instalações','Projeto/móveis do quarto do João'],
 ['Área externa','Área externa']
 ];
-const demo={project:{name:'Minha Casa',base:110000,budget:'',start:'',address:''},stages:stageSeed.map((s,i)=>({id:i+1,group:s[0],name:s[1],status:'Não iniciada',progress:0,budget:0,spent:0,responsible:'',start:'',end:'',notes:''})),expenses:[],suppliers:[{id:1,name:'Boa Vista Pisos',type:'Loja de material',phone:'',notes:'Revestimentos e porcelanatos'},{id:2,name:'Pedreiro',type:'Pedreiro',phone:'',notes:''}],events:[{id:1,date:new Date().toISOString().slice(0,10),title:'Projeto de acompanhamento criado',stage:'',value:0,kind:'manual'}]};
-let data=load(); let selectedCat='',selectedPay='Pix';
-function load(){try{return JSON.parse(localStorage.getItem('minhaObraV1'))||structuredClone(demo)}catch(e){return structuredClone(demo)}}
+
+const demo={
+  project:{name:'Minha Casa',base:110000,budget:'',start:'',address:''},
+  stages:stageSeed.map((s,i)=>({id:i+1,group:s[0],name:s[1],status:'Não iniciada',progress:0,budget:0,spent:0})),
+  expenses:[],
+  suppliers:[
+    {id:1,name:'Boa Vista Pisos',type:'Loja de material',phone:'',notes:'Revestimentos e porcelanatos'},
+    {id:2,name:'Pedreiro',type:'Pedreiro',phone:'',notes:''}
+  ],
+  events:[{id:1,date:new Date().toISOString().slice(0,10),title:'Projeto de acompanhamento criado',stage:'',value:0}]
+};
+
+let data=load();
+let selectedCat='Material';
+let selectedPay='Pix';
+let selectedStages=[];
+let returnToExpense=false;
+
+function clone(x){return JSON.parse(JSON.stringify(x))}
+function load(){try{return JSON.parse(localStorage.getItem('minhaObraV1'))||clone(demo)}catch(e){return clone(demo)}}
 function persist(){localStorage.setItem('minhaObraV1',JSON.stringify(data));renderAll()}
 function brl(v){return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(Number(v||0))}
-function fmtDate(v){if(!v)return'';return new Date(v+'T12:00:00').toLocaleDateString('pt-BR')}
-function showView(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===id));const map={dashboard:['Minha Casa','Visão geral da obra'],etapas:['Etapas da obra','Acompanhe o andamento'],gastos:['Gastos','Controle financeiro'],fornecedores:['Fornecedores','Lojas e profissionais'],timeline:['Linha do tempo','Histórico completo da obra'],config:['Projeto','Configurações gerais']};document.getElementById('pageTitle').textContent=map[id][0];document.getElementById('pageSub').textContent=map[id][1]}
+function fmtDate(v){return v?new Date(v+'T12:00:00').toLocaleDateString('pt-BR'):''}
+
+function showView(id){
+  document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===id));
+  const m={
+    dashboard:['Minha Casa','Visão geral da obra'],
+    etapas:['Etapas da obra','Acompanhe o andamento'],
+    gastos:['Gastos','Controle financeiro'],
+    fornecedores:['Fornecedores','Lojas e profissionais'],
+    timeline:['Linha do tempo','Histórico da obra'],
+    config:['Projeto','Configurações gerais']
+  };
+  pageTitle.textContent=m[id][0];
+  pageSub.textContent=m[id][1];
+}
 document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>showView(b.dataset.view));
-function renderDashboard(){const extra=data.expenses.reduce((a,e)=>a+Number(e.value||0),0);const done=data.stages.filter(s=>s.status==='Concluída').length;const pct=Math.round(done/data.stages.length*100);document.getElementById('kpiTotal').textContent=brl(Number(data.project.base||0)+extra);document.getElementById('kpiReforma').textContent=brl(extra);document.getElementById('kpiEtapas').textContent=`${done}/${data.stages.length}`;document.getElementById('kpiEtapasSub').textContent=`${pct}% concluído`;document.getElementById('progressLabel').textContent=pct+'%';document.getElementById('progressBar').style.width=pct+'%';document.getElementById('kpiNext').textContent=(data.stages.find(s=>s.status!=='Concluída')||{name:'Obra concluída'}).name;const areas=[['Frente',data.stages.filter(s=>['Muro frontal','Portão principal','Portão social'].includes(s.name))],['Sala/Cozinha',data.stages.filter(s=>/sala|cozinha|corredor/i.test(s.name))],['Suíte',data.stages.filter(s=>/suíte|closet|banheiro/i.test(s.name))]];document.getElementById('areaSummary').innerHTML=areas.map(([n,arr])=>{const d=arr.filter(s=>s.status==='Concluída').length;return `<div><div class="label" style="color:var(--muted);font-size:12px">${n}</div><strong>${d}/${arr.length}</strong></div>`}).join('');const recent=[...data.events].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,5);document.getElementById('recent').innerHTML=recent.length?recent.map(e=>`<div style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>${e.title}</strong><div style="font-size:12px;color:var(--muted)">${fmtDate(e.date)} ${e.value?`• ${brl(e.value)}`:''}</div></div>`).join(''):'<div class="empty">Sem movimentações ainda</div>';const totals={};data.expenses.forEach(e=>totals[e.category]=(totals[e.category]||0)+Number(e.value));const max=Math.max(1,...Object.values(totals));document.getElementById('categoryBars').innerHTML=categories.map(c=>{const v=totals[c]||0;return `<div style="margin:10px 0"><div class="row" style="justify-content:space-between"><span>${c}</span><strong>${brl(v)}</strong></div><div class="progress"><span style="width:${v/max*100}%"></span></div></div>`}).join('')}
-function renderStages(){const groups=[...new Set(data.stages.map(s=>s.group))];document.getElementById('stageGroups').innerHTML=groups.map(g=>`<div class="group"><h3>${g}</h3><div class="stage-list">${data.stages.filter(s=>s.group===g).map(stageCard).join('')}</div></div>`).join('')}
-function stageCard(s){const chip=s.status==='Concluída'?'ok':s.status==='Em andamento'?'warn':'';return `<div class="stage"><div><div class="row"><h3>${s.name}</h3><span class="chip ${chip}">${s.status}</span></div><div class="meta"><span>Progresso: ${s.progress||0}%</span><span>Orçado: ${brl(s.budget)}</span><span>Gasto: ${brl(s.spent)}</span></div><div class="progress" style="margin-top:10px"><span style="width:${s.progress||0}%"></span></div></div><div class="actions"><button class="btn soft" onclick="toggleStage(${s.id})">${s.status==='Concluída'?'Reabrir':'Concluir'}</button></div></div>`}
-function toggleStage(id){const s=data.stages.find(x=>x.id===id);if(s.status==='Concluída'){s.status='Não iniciada';s.progress=0}else{s.status='Concluída';s.progress=100;s.end=new Date().toISOString().slice(0,10);data.events.push({id:Date.now(),date:s.end,title:`Etapa concluída: ${s.name}`,stage:s.name,value:0,kind:'stage'})}persist()}
-function renderExpenses(){const fs=document.getElementById('filterStage').value,fc=document.getElementById('filterCategory').value;const arr=data.expenses.filter(e=>(!fs||e.stage===fs)&&(!fc||e.category===fc));document.getElementById('expenseRows').innerHTML=arr.length?arr.sort((a,b)=>b.date.localeCompare(a.date)).map(e=>`<tr><td>${fmtDate(e.date)}</td><td>${e.desc||'-'}</td><td>${e.stage||'-'}</td><td>${e.supplier||'-'}</td><td>${e.category}</td><td class="money">${brl(e.value)}</td></tr>`).join(''):`<tr><td colspan="6"><div class="empty">Nenhum gasto lançado</div></td></tr>`;document.getElementById('expenseTotal').textContent=brl(arr.reduce((a,e)=>a+Number(e.value),0))}
-function renderSuppliers(){document.getElementById('supplierGrid').innerHTML=data.suppliers.length?data.suppliers.map(s=>{const t=data.expenses.filter(e=>e.supplier===s.name).reduce((a,e)=>a+Number(e.value),0);return `<div class="card"><div class="row" style="justify-content:space-between"><strong>${s.name}</strong><span class="chip">${s.type}</span></div><p style="color:var(--muted);font-size:13px">${s.notes||'Sem observações'}</p><div class="money">${brl(t)}</div><div style="font-size:12px;color:var(--muted)">Total gasto</div></div>`}).join(''):'<div class="empty">Nenhum fornecedor cadastrado</div>'}
-function renderTimeline(){const arr=[...data.events].sort((a,b)=>b.date.localeCompare(a.date));document.getElementById('timelineList').innerHTML=arr.length?arr.map(e=>`<div class="event"><div class="date">${fmtDate(e.date)}</div><strong>${e.title}</strong>${e.stage?`<div style="color:var(--muted);font-size:13px">${e.stage}</div>`:''}${e.value?`<div class="money" style="margin-top:6px">${brl(e.value)}</div>`:''}</div>`).join(''):'<div class="empty">A linha do tempo será criada automaticamente conforme a obra evoluir.</div>'}
-function populateSelects(){const stageOpts='<option value="">Sem vínculo</option>'+data.stages.map(s=>`<option>${s.name}</option>`).join('');document.getElementById('expStage').innerHTML=stageOpts;document.getElementById('filterStage').innerHTML='<option value="">Todas as etapas</option>'+data.stages.map(s=>`<option>${s.name}</option>`).join('');document.getElementById('filterCategory').innerHTML='<option value="">Todas as categorias</option>'+categories.map(c=>`<option>${c}</option>`).join('');document.getElementById('expSupplier').innerHTML='<option value="">Sem fornecedor</option>'+data.suppliers.map(s=>`<option>${s.name}</option>`).join('')}
-function openExpense(){document.getElementById('expenseModal').classList.add('open');document.getElementById('expDate').value=new Date().toISOString().slice(0,10);selectedCat='Material';selectedPay='Pix';renderQuick()}
-function openSupplier(){document.getElementById('supplierModal').classList.add('open')}
+
+function renderDashboard(){
+  const extra=data.expenses.reduce((a,e)=>a+Number(e.value||0),0);
+  const done=data.stages.filter(s=>s.status==='Concluída').length;
+  const pct=Math.round(done/data.stages.length*100);
+
+  kpiTotal.textContent=brl(Number(data.project.base||0)+extra);
+  kpiReforma.textContent=brl(extra);
+  kpiEtapas.textContent=done+'/'+data.stages.length;
+  kpiEtapasSub.textContent=pct+'% concluído';
+  progressLabel.textContent=pct+'%';
+  progressBar.style.width=pct+'%';
+  kpiNext.textContent=(data.stages.find(s=>s.status!=='Concluída')||{name:'Obra concluída'}).name;
+
+  const areas=[
+    ['Frente',data.stages.filter(s=>/muro|portão/i.test(s.name))],
+    ['Sala/Cozinha',data.stages.filter(s=>/sala|cozinha|corredor/i.test(s.name))],
+    ['Suíte',data.stages.filter(s=>/suíte|closet|banheiro/i.test(s.name))]
+  ];
+  areaSummary.innerHTML=areas.map(([n,a])=>`<div><div class="label">${n}</div><strong>${a.filter(s=>s.status==='Concluída').length}/${a.length}</strong></div>`).join('');
+
+  const r=[...data.events].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,5);
+  recent.innerHTML=r.length?r.map(e=>`<div style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>${e.title}</strong><div class="label">${fmtDate(e.date)} ${e.value?' • '+brl(e.value):''}</div></div>`).join(''):'<div class="empty">Sem movimentações</div>';
+
+  const totals={};
+  data.expenses.forEach(e=>totals[e.category]=(totals[e.category]||0)+Number(e.value));
+  const max=Math.max(1,...Object.values(totals));
+  categoryBars.innerHTML=categories.map(c=>{
+    const v=totals[c]||0;
+    return `<div style="margin:10px 0"><div class="row" style="justify-content:space-between"><span>${c}</span><strong>${brl(v)}</strong></div><div class="progress"><span style="width:${v/max*100}%"></span></div></div>`
+  }).join('');
+}
+
+function renderStages(){
+  const groups=[...new Set(data.stages.map(s=>s.group))];
+  stageGroups.innerHTML=groups.map(g=>`<div class="group"><h3>${g}</h3><div class="stage-list">${data.stages.filter(s=>s.group===g).map(stageCard).join('')}</div></div>`).join('');
+}
+function stageCard(s){
+  const ch=s.status==='Concluída'?'ok':s.status==='Em andamento'?'warn':'';
+  return `<div class="stage">
+    <div>
+      <div class="row"><h3>${s.name}</h3><span class="chip ${ch}">${s.status}</span></div>
+      <div class="meta"><span>Progresso: ${s.progress||0}%</span><span>Gasto: ${brl(s.spent)}</span></div>
+      <div class="progress" style="margin-top:9px"><span style="width:${s.progress||0}%"></span></div>
+    </div>
+    <button class="btn soft" onclick="toggleStage(${s.id})">${s.status==='Concluída'?'Reabrir':'Concluir'}</button>
+  </div>`;
+}
+function toggleStage(id){
+  const s=data.stages.find(x=>x.id===id);
+  if(s.status==='Concluída'){
+    s.status='Não iniciada';s.progress=0
+  }else{
+    s.status='Concluída';s.progress=100;s.end=new Date().toISOString().slice(0,10);
+    data.events.push({id:Date.now(),date:s.end,title:'Etapa concluída: '+s.name,stage:s.name,value:0})
+  }
+  persist()
+}
+
+function eStages(e){return Array.isArray(e.stages)?e.stages:(e.stage?[e.stage]:[])}
+
+function renderExpenses(){
+  const fs=filterStage.value,fc=filterCategory.value;
+  const a=data.expenses.filter(e=>(!fs||eStages(e).includes(fs))&&(!fc||e.category===fc));
+  expenseRows.innerHTML=a.length
+    ?a.sort((x,y)=>y.date.localeCompare(x.date)).map(e=>`<tr>
+      <td>${fmtDate(e.date)}</td>
+      <td>${e.desc||'-'}</td>
+      <td>${eStages(e).join(', ')||'-'}</td>
+      <td>${e.supplier||'-'}</td>
+      <td>${e.category}</td>
+      <td class="money">${brl(e.value)}</td>
+    </tr>`).join('')
+    :'<tr><td colspan="6"><div class="empty">Nenhum gasto lançado</div></td></tr>';
+  expenseTotal.textContent=brl(a.reduce((x,e)=>x+Number(e.value),0))
+}
+
+function renderSuppliers(){
+  supplierGrid.innerHTML=data.suppliers.length
+    ?data.suppliers.map(s=>{
+      const t=data.expenses.filter(e=>e.supplier===s.name).reduce((a,e)=>a+Number(e.value),0);
+      return `<div class="card">
+        <div class="row" style="justify-content:space-between"><strong>${s.name}</strong><span class="chip">${s.type}</span></div>
+        <p class="label">${s.notes||'Sem observações'}</p>
+        <div class="money">${brl(t)}</div>
+        <div class="label">Total gasto</div>
+      </div>`
+    }).join('')
+    :'<div class="empty">Nenhum fornecedor cadastrado</div>'
+}
+
+function renderTimeline(){
+  const a=[...data.events].sort((x,y)=>y.date.localeCompare(x.date));
+  timelineList.innerHTML=a.length
+    ?a.map(e=>`<div class="event"><div class="label">${fmtDate(e.date)}</div><strong>${e.title}</strong>${e.stage?`<div class="label">${e.stage}</div>`:''}${e.value?`<div class="money" style="margin-top:5px">${brl(e.value)}</div>`:''}</div>`).join('')
+    :'<div class="empty">Sem eventos ainda.</div>'
+}
+
+function populate(){
+  filterStage.innerHTML='<option value="">Todas as etapas</option>'+data.stages.map(s=>`<option>${s.name}</option>`).join('');
+  filterCategory.innerHTML='<option value="">Todas as categorias</option>'+categories.map(c=>`<option>${c}</option>`).join('');
+  expSupplier.innerHTML='<option value="">Sem fornecedor</option>'+data.suppliers.map(s=>`<option>${s.name}</option>`).join('')
+}
+
+function openExpense(){
+  expenseModal.classList.add('open');
+  expDate.value=new Date().toISOString().slice(0,10);
+  selectedCat='Material';
+  selectedPay='Pix';
+  selectedStages=[];
+  renderQuick()
+}
 function closeModal(id){document.getElementById(id).classList.remove('open')}
-function renderQuick(){document.getElementById('catQuick').innerHTML=categories.map(c=>`<button class="${c===selectedCat?'sel':''}" onclick="selectedCat='${c}';renderQuick()">${c}</button>`).join('');document.getElementById('payQuick').innerHTML=payments.map(c=>`<button class="${c===selectedPay?'sel':''}" onclick="selectedPay='${c}';renderQuick()">${c}</button>`).join('')}
-function saveExpense(){const value=Number(document.getElementById('expValue').value);if(!value)return alert('Informe o valor.');const e={id:Date.now(),value,category:selectedCat,stage:document.getElementById('expStage').value,supplier:document.getElementById('expSupplier').value,payment:selectedPay,date:document.getElementById('expDate').value,desc:document.getElementById('expDesc').value};data.expenses.push(e);if(e.stage){const s=data.stages.find(x=>x.name===e.stage);if(s)s.spent=Number(s.spent||0)+value}data.events.push({id:Date.now()+1,date:e.date,title:`Novo gasto: ${e.desc||e.category}`,stage:e.stage,value:e.value,kind:'expense'});document.getElementById('expValue').value='';document.getElementById('expDesc').value='';closeModal('expenseModal');persist()}
-function saveSupplier(){const n=document.getElementById('supName').value.trim();if(!n)return alert('Informe o nome.');data.suppliers.push({id:Date.now(),name:n,type:document.getElementById('supType').value,phone:document.getElementById('supPhone').value,notes:document.getElementById('supNotes').value});['supName','supPhone','supNotes'].forEach(id=>document.getElementById(id).value='');closeModal('supplierModal');persist()}
-function saveProject(){data.project={name:document.getElementById('projectName').value||'Minha Casa',base:Number(document.getElementById('projectBase').value||0),budget:Number(document.getElementById('projectBudget').value||0),start:document.getElementById('projectStart').value,address:document.getElementById('projectAddress').value};persist();alert('Projeto salvo.')}
-function renderProject(){document.getElementById('projectName').value=data.project.name||'';document.getElementById('projectBase').value=data.project.base||0;document.getElementById('projectBudget').value=data.project.budget||'';document.getElementById('projectStart').value=data.project.start||'';document.getElementById('projectAddress').value=data.project.address||'';document.getElementById('pageTitle').textContent=data.project.name||'Minha Casa'}
-function exportData(){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='minha-obra-backup.json';a.click();URL.revokeObjectURL(a.href)}
-function resetData(){if(confirm('Restaurar os dados iniciais?')){data=structuredClone(demo);persist()}}
-function renderAll(){populateSelects();renderDashboard();renderStages();renderExpenses();renderSuppliers();renderTimeline();renderProject()}
+function openSupplier(){supplierModal.classList.add('open')}
+function openSupplierFromExpense(){
+  returnToExpense=true;
+  expenseModal.classList.remove('open');
+  openSupplier()
+}
+function cancelSupplier(){
+  supplierModal.classList.remove('open');
+  if(returnToExpense){returnToExpense=false;expenseModal.classList.add('open')}
+}
+
+function renderQuick(){
+  catQuick.innerHTML='';
+  categories.forEach(c=>{
+    const b=document.createElement('button');
+    b.type='button';
+    b.textContent=c;
+    b.className=c===selectedCat?'sel':'';
+    b.onclick=()=>{selectedCat=c;renderQuick()};
+    catQuick.appendChild(b)
+  });
+
+  payQuick.innerHTML='';
+  payments.forEach(c=>{
+    const b=document.createElement('button');
+    b.type='button';
+    b.textContent=c;
+    b.className=c===selectedPay?'sel':'';
+    b.onclick=()=>{selectedPay=c;renderQuick()};
+    payQuick.appendChild(b)
+  });
+
+  stageQuick.innerHTML='';
+  data.stages.forEach(s=>{
+    const b=document.createElement('button');
+    b.type='button';
+    b.textContent=s.name;
+    b.className='stage-pick '+(selectedStages.includes(s.name)?'sel':'');
+    b.onclick=()=>{
+      selectedStages=selectedStages.includes(s.name)
+        ?selectedStages.filter(x=>x!==s.name)
+        :[...selectedStages,s.name];
+      renderQuick()
+    };
+    stageQuick.appendChild(b)
+  })
+}
+
+function saveExpense(){
+  const value=Number(expValue.value);
+  if(!value)return alert('Informe o valor.');
+
+  const e={
+    id:Date.now(),
+    value,
+    category:selectedCat,
+    stages:[...selectedStages],
+    stage:selectedStages[0]||'',
+    supplier:expSupplier.value,
+    payment:selectedPay,
+    date:expDate.value,
+    desc:expDesc.value
+  };
+
+  data.expenses.push(e);
+
+  if(e.stages.length){
+    const share=value/e.stages.length;
+    e.stages.forEach(n=>{
+      const s=data.stages.find(x=>x.name===n);
+      if(s)s.spent=Number(s.spent||0)+share
+    })
+  }
+
+  data.events.push({
+    id:Date.now()+1,
+    date:e.date,
+    title:'Novo gasto: '+(e.desc||e.category),
+    stage:e.stages.join(', '),
+    value:e.value
+  });
+
+  expValue.value='';
+  expDesc.value='';
+  expenseModal.classList.remove('open');
+  persist()
+}
+
+function saveSupplier(){
+  const n=supName.value.trim();
+  if(!n)return alert('Informe o nome.');
+
+  data.suppliers.push({
+    id:Date.now(),
+    name:n,
+    type:supType.value,
+    phone:supPhone.value,
+    notes:supNotes.value
+  });
+
+  supName.value='';
+  supPhone.value='';
+  supNotes.value='';
+  supplierModal.classList.remove('open');
+  persist();
+
+  if(returnToExpense){
+    returnToExpense=false;
+    expenseModal.classList.add('open');
+    expSupplier.value=n;
+    renderQuick()
+  }
+}
+
+function saveProject(){
+  data.project={
+    name:projectName.value||'Minha Casa',
+    base:Number(projectBase.value||0),
+    budget:Number(projectBudget.value||0),
+    start:projectStart.value,
+    address:projectAddress.value
+  };
+  persist();
+  alert('Projeto salvo.')
+}
+
+function renderProject(){
+  projectName.value=data.project.name||'';
+  projectBase.value=data.project.base||0;
+  projectBudget.value=data.project.budget||'';
+  projectStart.value=data.project.start||'';
+  projectAddress.value=data.project.address||'';
+  pageTitle.textContent=data.project.name||'Minha Casa'
+}
+
+function exportData(){
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='minha-obra-backup.json';
+  a.click();
+  URL.revokeObjectURL(a.href)
+}
+
+function resetData(){
+  if(confirm('Restaurar os dados iniciais?')){
+    data=clone(demo);
+    persist()
+  }
+}
+
+function renderAll(){
+  populate();
+  renderDashboard();
+  renderStages();
+  renderExpenses();
+  renderSuppliers();
+  renderTimeline();
+  renderProject()
+}
+
 renderAll();
 </script>
 </body>
